@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex Chen - Senior GenAI Developer</title>
+    <meta name="description" content="Senior GenAI Developer specializing in LLMs, RAG systems, and AI agent development. Building intelligent systems that transform businesses.">
+    <meta name="keywords" content="GenAI, AI Developer, Machine Learning, LLM, RAG, AI Agents">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a1a1a;
+            --secondary: #f5f5f5;
+            --accent: #3b82f6;
+            --text: #374151;
+            --light-gray: #e5e7eb;
+            --success: #059669;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 8rem 0 4rem;
+            text-align: center;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero .subtitle {
+            font-size: 1.25rem;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .hero .tagline {
+            font-size: 1.1rem;
+            color: #6b7280;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.875rem 2rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #2563eb;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--text);
+            border: 2px solid var(--light-gray);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary);
+        }
+
+        /* About Section */
+        .about {
+            background: var(--secondary);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-category h4 {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.875rem;
+            color: var(--text);
+            border: 1px solid var(--light-gray);
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid var(--light-gray);
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .project-card p {
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-tag {
+            background: #eff6ff;
+            color: var(--accent);
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .impact {
+            background: #f0fdf4;
+            color: var(--success);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-links a {
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.875rem;
+            transition: all 0.3s ease;
+        }
+
+        .github-link {
+            background: var(--primary);
+            color: white;
+        }
+
+        .github-link:hover {
+            background: #374151;
+        }
+
+        .demo-link {
+            background: var(--accent);
+            color: white;
+        }
+
+        .demo-link:hover {
+            background: #2563eb;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--primary);
+            color: white;
+        }
+
+        .contact .section-title {
+            color: white;
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-form {
+            display: grid;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 0.875rem;
+            border-radius: 0.5rem;
+            border: 1px solid #4b5563;
+            background: #374151;
+            color: white;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background: #111827;
+            color: #9ca3af;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-links a {
+            color: #9ca3af;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">Alex Chen</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Alex Chen</h1>
+            <p class="subtitle">Senior GenAI Developer</p>
+            <p class="tagline">Building intelligent systems that transform businesses through cutting-edge AI solutions</p>
+            <div class="cta-buttons">
+                <a href="#projects" class="btn btn-primary">View Projects</a>
+                <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Transforming Ideas into AI Reality</h3>
+                    <p>Senior GenAI Developer with 8+ years of experience building production-scale AI systems. I specialize in creating intelligent solutions that solve complex business problems through advanced machine learning and natural language processing.</p>
+                    <p>From enterprise RAG systems to custom LLM implementations, I help organizations harness the power of generative AI to drive innovation and efficiency.</p>
+                </div>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4>AI/ML Expertise</h4>
+                        <div class="skill-list">
+                            <span class="skill-tag">Large Language Models</span>
+                            <span class="skill-tag">RAG Systems</span>
+                            <span class="skill-tag">AI Agents</span>
+                            <span class="skill-tag">Prompt Engineering</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Technologies</h4>
+                        <div class="skill-list">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">PyTorch</span>
+                            <span class="skill-tag">TensorFlow</span>
+                            <span class="skill-tag">LangChain</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Cloud & MLOps</h4>
+                        <div class="skill-list">
+                            <span class="skill-tag">AWS SageMaker</span>
+                            <span class="skill-tag">Docker</span>
+                            <span class="skill-tag">Kubernetes</span>
+                            <span class="skill-tag">MLflow</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Databases & APIs</h4>
+                        <div class="skill-list">
+                            <span class="skill-tag">Pinecone</span>
+                            <span class="skill-tag">PostgreSQL</span>
+                            <span class="skill-tag">FastAPI</span>
+                            <span class="skill-tag">OpenAI API</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>Enterprise RAG System</h3>
+                    <p>Built a production-scale Retrieval-Augmented Generation system capable of processing and querying over 10,000 documents in real-time for a Fortune 500 company.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">LangChain</span>
+                        <span class="tech-tag">Pinecone</span>
+                        <span class="tech-tag">OpenAI GPT-4</span>
+                        <span class="tech-tag">FastAPI</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                    </div>
+                    <div class="impact">
+                        💡 Impact: Reduced document query time by 80% and improved answer accuracy to 94%
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="github-link">GitHub</a>
+                        <a href="#" class="demo-link">Live Demo</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Multi-Agent AI Framework</h3>
+                    <p>Developed an intelligent multi-agent system that automates complex business workflows by coordinating specialized AI agents for different tasks.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">CrewAI</span>
+                        <span class="tech-tag">LangGraph</span>
+                        <span class="tech-tag">Redis</span>
+                        <span class="tech-tag">Docker</span>
+                        <span class="tech-tag">Celery</span>
+                    </div>
+                    <div class="impact">
+                        🚀 Impact: Automated 70% of manual processes, saving 40+ hours per week
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="github-link">GitHub</a>
+                        <a href="#" class="demo-link">Case Study</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Custom LLM Fine-tuning Pipeline</h3>
+                    <p>Created a specialized large language model for legal document analysis using advanced fine-tuning techniques and distributed training infrastructure.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">LoRA</span>
+                        <span class="tech-tag">Hugging Face</span>
+                        <span class="tech-tag">AWS SageMaker</span>
+                        <span class="tech-tag">Transformers</span>
+                        <span class="tech-tag">DeepSpeed</span>
+                    </div>
+                    <div class="impact">
+                        📈 Impact: Achieved 95% accuracy improvement over baseline models
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="github-link">GitHub</a>
+                        <a href="#" class="demo-link">Research Paper</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>AI-Powered Code Assistant</h3>
+                    <p>Built an intelligent code completion and review system that integrates with popular IDEs to provide context-aware suggestions and automated code quality checks.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">CodeT5</span>
+                        <span class="tech-tag">GitHub Copilot</span>
+                        <span class="tech-tag">VS Code API</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">TypeScript</span>
+                    </div>
+                    <div class="impact">
+                        ⚡ Impact: Increased developer productivity by 45% and reduced code review time by 60%
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="github-link">GitHub</a>
+                        <a href="#" class="demo-link">VSCode Extension</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Intelligent Customer Support Bot</h3>
+                    <p>Developed a sophisticated conversational AI system that handles customer inquiries across multiple channels with natural language understanding and sentiment analysis.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Rasa</span>
+                        <span class="tech-tag">spaCy</span>
+                        <span class="tech-tag">BERT</span>
+                        <span class="tech-tag">WebSocket</span>
+                        <span class="tech-tag">MongoDB</span>
+                    </div>
+                    <div class="impact">
+                        🎯 Impact: Resolved 85% of queries automatically and improved customer satisfaction by 30%
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="github-link">GitHub</a>
+                        <a href="#" class="demo-link">Live Demo</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Real-time AI Analytics Dashboard</h3>
+                    <p>Created a comprehensive monitoring and analytics platform for AI model performance with real-time insights, drift detection, and automated alerting systems.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Streamlit</span>
+                        <span class="tech-tag">MLflow</span>
+                        <span class="tech-tag">Apache Kafka</span>
+                        <span class="tech-tag">InfluxDB</span>
+                        <span class="tech-tag">Grafana</span>
+                    </div>
+                    <div class="impact">
+                        📊 Impact: Reduced model downtime by 75% through predictive monitoring
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="github-link">GitHub</a>
+                        <a href="#" class="demo-link">Dashboard Demo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Let's Build Something Amazing</h2>
+            <div class="contact-content">
+                <p style="font-size: 1.1rem; margin-bottom: 2rem;">Ready to transform your business with cutting-edge AI solutions? Let's discuss your next project.</p>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Tell me about your AI project..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="justify-self: center;">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://linkedin.com/in/alexchen" target="_blank">LinkedIn</a>
+                <a href="https://github.com/alexchen" target="_blank">GitHub</a>
+                <a href="https://twitter.com/alexchen" target="_blank">Twitter</a>
+                <a href="mailto:alex@example.com">Email</a>
+            </div>
+            <p>&copy; 2025 Alex Chen. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Contact form handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const message = formData.get('message');
+            
+            // Simple validation
+            if (!name || !email || !message) {
+                alert('Please fill in all fields.');
+                return;
+            }
+            
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+            
+            // Simulate form submission
+            const submitButton = this.querySelector('button[type="submit"]');
+            const originalText = submitButton.textContent;
+            submitButton.textContent = 'Sending...';
+            submitButton.disabled = true;
+            
+            setTimeout(() => {
+                alert('Message sent successfully! I\'ll get back to you soon.');
+                this.reset();
+                submitButton.textContent = originalText;
+                submitButton.disabled = false;
+            }, 2000);
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe project cards
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
